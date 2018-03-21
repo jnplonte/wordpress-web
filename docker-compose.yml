@@ -11,11 +11,11 @@ services:
         ports:
             - "8008:80"
         volumes:
-            - ./config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-            - ./config/wp-config.php:/var/www/html/wp-config.php
-            - ./plugin/test/:/var/www/html/wp-content/plugins/test
-            - ./theme/test/:/var/www/html/wp-content/themes/test
+            - ./wp-config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
             - ./wp-app:/var/www/html
+            # - ./config/wp-config.php:/var/www/html/wp-config.php
+            - ./wp-themes/ohi:/var/www/html/wp-content/themes/ohi
+            - ./wp-plugins/test:/var/www/html/wp-content/plugins/test
         environment:
             WORDPRESS_DB_HOST: wordpressdb
             WORDPRESS_DB_NAME: wordpress
