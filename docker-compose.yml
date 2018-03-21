@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+    wordpress:
+        image: wordpress:latest
+        restart: always
+        depends_on:
+            - wordpressdb
+        networks:
+            - wordpress-network
+        ports:
+            - "8008:80"
+        volumes:
+            - ./config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+            - ./config/wp-config.php:/var/www/html/wp-config.php
+            - ./plugin/test/:/var/www/html/wp-content/plugins/test
+            - ./theme/test/:/var/www/html/wp-content/themes/test
+            - ./wp-app:/var/www/html
+        environment:
+            WORDPRESS_DB_HOST: wordpressdb
+            WORDPRESS_DB_NAME: wordpress
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            
+    wordpressdb:
+        image: mysql:5.7
+        volumes:
+            - dbdata:/var/lib/mysql
+        restart: always
+        networks:
+            - wordpress-network
+        environment:
+            MYSQL_ROOT_PASSWORD: wordpress
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+        ports:
+            - 3308:3306
+        volumes:
+            - ./wp-data:/docker-entrypoint-initdb.d
+
+networks:
+    wordpress-network:
+        driver: bridge
