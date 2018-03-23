@@ -13,9 +13,10 @@ services:
         volumes:
             - ./wp-config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
             - ./wp-app:/var/www/html
-            # - ./config/wp-config.php:/var/www/html/wp-config.php
-            - ./wp-themes/ohi:/var/www/html/wp-content/themes/ohi
-            - ./wp-plugins/test:/var/www/html/wp-content/plugins/test
+            - ./wp-themes/ohi-theme:/var/www/html/wp-content/themes/ohi-theme
+            - ./wp-plugins/ohi-projects:/var/www/html/wp-content/plugins/ohi-projects
+            - ./wp-plugins/ohi-trips:/var/www/html/wp-content/plugins/ohi-trips
+            # - ./wp-config/wp-config.php:/var/www/html/wp-config.php
         environment:
             WORDPRESS_DB_HOST: wordpressdb
             WORDPRESS_DB_NAME: wordpress
