@@ -597,3 +597,35 @@ function wp_disable_theme_updates( $ret, $url ) {
 }
 
 add_filter( 'http_request_args', 'wp_disable_theme_updates', 5, 2 );
+
+add_role('Volunteer', __(
+    'Volunteer'),
+    array(
+        'read' => true
+    )
+);
+
+
+function ohi_protect_volunteer_registration() {
+	global $post;
+	// hard coded for now
+	if( $post->ID == 27 && !is_admin() ){
+		if( is_user_logged_in()){
+			wp_redirect( home_url() );
+		}
+	}
+}
+
+add_action( 'template_redirect', 'ohi_protect_volunteer_registration' );
+
+function ohi_protect_volunteer_update_profile() {
+	global $post;
+	// hard coded for now
+	if( $post->ID == 35 && !is_admin() ){
+		if( !is_user_logged_in() ){
+			wp_redirect( home_url() );
+		}
+	}
+}
+
+add_action( 'template_redirect', 'ohi_protect_volunteer_update_profile' );

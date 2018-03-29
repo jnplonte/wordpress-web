@@ -14,8 +14,12 @@ services:
             - ./wp-config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
             - ./wp-app:/var/www/html
             - ./wp-themes/ohi-theme:/var/www/html/wp-content/themes/ohi-theme
+            # - ./wp-themes/blankslate:/var/www/html/wp-content/themes/blankslate
             - ./wp-plugins/ohi-projects:/var/www/html/wp-content/plugins/ohi-projects
             - ./wp-plugins/ohi-trips:/var/www/html/wp-content/plugins/ohi-trips
+            - ./wp-plugins/advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro
+            - ./wp-plugins/gravityforms:/var/www/html/wp-content/plugins/gravityforms
+            - ./wp-plugins/gravityformsuserregistration:/var/www/html/wp-content/plugins/gravityformsuserregistration
             # - ./wp-config/wp-config.php:/var/www/html/wp-config.php
         environment:
             WORDPRESS_DB_HOST: wordpressdb
