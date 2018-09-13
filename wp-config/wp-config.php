@@ -81,8 +81,8 @@ define('WP_DEBUG', true);
 
 define('DISABLE_WP_CRON', true);
 
-define('WP_HOME','https://localhost:8008/');
-define('WP_SITEURL','https://localhost:8008/');
+define('WP_HOME','http://localhost:8787/');
+define('WP_SITEURL','http://localhost:8787/');
 
 
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact

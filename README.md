@@ -1,11 +1,13 @@
-# OHI WORDPRESS
+# WORDPRESS WEB
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
+## Version
+**v1.0.0**
 
-## dependencies
-* docker: [https://www.docker.com/](https://www.docker.com/)
-* docker-compose: [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
+## Dependencies
+* php [https://php.net/](https://php.net/)
 * wordpress: [https://wordpress.org/](https://wordpress.org/)
+* docker: [https://www.docker.com/](https://www.docker.com/)
 * mysql: [https://www.mysql.com/](https://www.mysql.com/)
 
 
@@ -31,8 +33,8 @@
 
 
 ## connect to mysql
-* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress_wordpressdb_1`
-* `mysql -uwordpress -p -h172.23.0.2`
+* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpressdb_1`
+* `mysql -uwordpress -p -h<ip-address>`
 
 
 ## mysql dump
@@ -40,9 +42,9 @@
 
 
 ## explore docker filesystem
-* `docker run -t -i wordpress_wordpress_1 /bin/bash`
+* `docker run -t -i wordpress-web_wordpress_1 /bin/bash`
 
 
 ## check docker information
-* `docker inspect wordpress_wordpress_1 | grep "IPAddress"`
-* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress_wordpress_1`
+* `docker inspect wordpress-web_wordpress_1 | grep "IPAddress"`
+* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpress_1`

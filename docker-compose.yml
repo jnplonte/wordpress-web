@@ -9,17 +9,12 @@ services:
         networks:
             - wordpress-network
         ports:
-            - "8008:80"
+            - "8787:80"
         volumes:
             - ./wp-config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
             - ./wp-app:/var/www/html
-            - ./wp-themes/ohi-theme:/var/www/html/wp-content/themes/ohi-theme
-            # - ./wp-themes/blankslate:/var/www/html/wp-content/themes/blankslate
-            - ./wp-plugins/ohi-projects:/var/www/html/wp-content/plugins/ohi-projects
-            - ./wp-plugins/ohi-trips:/var/www/html/wp-content/plugins/ohi-trips
-            - ./wp-plugins/advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro
-            - ./wp-plugins/gravityforms:/var/www/html/wp-content/plugins/gravityforms
-            - ./wp-plugins/gravityformsuserregistration:/var/www/html/wp-content/plugins/gravityformsuserregistration
+            # - ./wp-themes/<theme>:/var/www/html/wp-content/themes/<theme>
+            # - ./wp-plugins/<plugin>:/var/www/html/wp-content/plugins/<plugin>
             # - ./wp-config/wp-config.php:/var/www/html/wp-config.php
         environment:
             WORDPRESS_DB_HOST: wordpressdb
@@ -40,7 +35,7 @@ services:
             MYSQL_USER: wordpress
             MYSQL_PASSWORD: wordpress
         ports:
-            - 3308:3306
+            - 3307:3306
         volumes:
             - ./wp-data:/docker-entrypoint-initdb.d
 
