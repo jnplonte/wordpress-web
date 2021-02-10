@@ -1,50 +1,59 @@
 # WORDPRESS WEB
+
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ## Version
+
 **v1.0.0**
 
 ## Dependencies
-* php [https://php.net/](https://php.net/)
-* wordpress: [https://wordpress.org/](https://wordpress.org/)
-* docker: [https://www.docker.com/](https://www.docker.com/)
-* mysql: [https://www.mysql.com/](https://www.mysql.com/)
 
+- php [https://php.net/](https://php.net/)
+- wordpress: [https://wordpress.org/](https://wordpress.org/)
+- docker: [https://www.docker.com/](https://www.docker.com/)
+- mysql: [https://www.mysql.com/](https://www.mysql.com/)
+
+## Demo
+
+- web: [http://wordpressweb.jnpl.me/](http://wordpressweb.jnpl.me/)
 
 ## This create 2 new folders beside your docker-compose.yml file.
-* **wp-data** - used to store and restore database dumps
-* **wp-app** - the location of your wordpress application
 
+- **wp-data** - used to store and restore database dumps
+- **wp-app** - the location of your wordpress application
 
-## start docker
-* build docker image by running `docker-compose build`
-* running docker image by running `docker-compose up`
-* start docker image by running `docker-compose start`
+## back-up data to wp-data
 
-* check docker inforation by running `docker-compose ps`
-* identify the docker inforation by running `docker inspect <docker-name>`
+- `sudo bash export-database.sh`
 
+## Installation
 
-## stop docker
-* stop docker image by running `docker-compose stop`
-* killing docker image by running `docker-compose kill`
-* removing docker image by running `docker-compose rm`
-* down docker image by running `docker-compose down --volumes`
+### start docker
 
+- build docker image by running `docker-compose build`
+- running docker image by running `docker-compose up`
+- start docker image by running `docker-compose start`
 
-## connect to mysql
-* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpressdb_1`
-* `mysql -uwordpress -p -h<ip-address>`
+- check docker inforation by running `docker-compose ps`
+- identify the docker inforation by running `docker inspect <docker-name>`
 
+### stop docker
 
-## mysql dump
-* `sudo bash export-database.sh`
+- stop docker image by running `docker-compose stop`
+- killing docker image by running `docker-compose kill`
+- removing docker image by running `docker-compose rm`
+- down docker image by running `docker-compose down --volumes`
 
+### connect to mysql
 
-## explore docker filesystem
-* `docker run -t -i wordpress-web_wordpress_1 /bin/bash`
+- `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpressdb_1`
+- `mysql -uwordpress -p -h<ip-address>`
 
+### explore docker filesystem
 
-## check docker information
-* `docker inspect wordpress-web_wordpress_1 | grep "IPAddress"`
-* `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpress_1`
+- `docker run -t -i wordpress-web_wordpress_1 /bin/bash`
+
+### check docker information
+
+- `docker inspect wordpress-web_wordpress_1 | grep "IPAddress"`
+- `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wordpress-web_wordpress_1`
